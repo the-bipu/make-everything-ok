@@ -2,32 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.backgroundImg {
+  background-image: url('../public/background.jpg');
+  background-size: cover;
+}
+
+/* CSS */
+.button-11 {
+  touch-action: manipulation;
+  position: relative;
+  padding: 0;
+  width: 400px;
+  height: 100px;
+  border: 2px solid #888888;
+  outline: none;
+  background-color: #f4f5f6;
+  border-radius: 20px;
+  box-shadow: -3px -10px 17.5px #ffffff, -3px -5px 7.5px #ffffff,
+    -10px 0px 15px #ffffff, 3px 10px 12.5px rgba(0, 0, 0, 0.2);
+  transition: 0.13s ease-in-out;
+  cursor: pointer;
+}
+
+.button-11:active {
+  box-shadow: none;
+}
+
+.button-11:active .button-11__content {
+  box-shadow: none;
+}
+
+.button-11:active .button-11__content .button-11__text,
+.button-11:active .button-11__content .button-11__icon {
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.button-11__content {
+  position: relative;
+  display: grid;
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  box-shadow: inset 4px -8px 0px #dddddd, 0px -4px 0px #f4f5f6;
+  border-radius: 20px;
+  transition: 0.13s ease-in-out;
+  z-index: 1;
+}
+
+.button-11__icon {
+  position: relative;
+  display: flex;
+  transform: translate3d(0px, -2px, 0px);
+  grid-column: 4;
+  align-self: start;
+  justify-self: end;
+  width: 24px;
+  height: 24px;
+  transition: 0.13s ease-in-out;
+}
+
+.button-11__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #aaaaaa;
+}
+
+.button-11__text {
+  position: relative;
+  transform: translate3d(0px, -2px, 0px);
+  margin: 0;
+  align-self: end;
+  grid-column: 1/5;
+  grid-row: 2;
+  text-align: center;
+  font-size: 24px;
+  background-color: #888888;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  transition: 0.13s ease-in-out;
 }
