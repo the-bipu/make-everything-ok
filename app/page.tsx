@@ -103,7 +103,7 @@ export default function Home() {
                 ) : (
                   <>
                     <span>Everything is already fine.</span>
-                    <span className="mb-4 text-sm font-normal">Don't stress too much, life is too short to take stress. Wanna talk, we're here for you.</span></>
+                    <span className="mb-4 text-sm font-normal">Don&apos;t stress too much, life is too short to take stress. Wanna talk, we&apos;re here for you.</span></>
                 )}
               </AlertDialogTitle>
               <AlertDialogDescription>
@@ -114,7 +114,7 @@ export default function Home() {
               {!isOpened ? (
                 <AlertDialogCancel className="h-8" onClick={handleCancel}>still wanna stop!?</AlertDialogCancel>
               ) : (
-                <AlertDialogCancel className="h-8" onClick={() => router.push('https://wa.me/7004817946')}>We're here!</AlertDialogCancel>
+                <AlertDialogCancel className="h-8" onClick={() => router.push('https://wa.me/7004817946')}>We&apos;re here!</AlertDialogCancel>
               )}
             </AlertDialogFooter>
           </AlertDialogContent>
