@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { GitHubLogoIcon, InstagramLogoIcon, ResetIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { EnvelopeClosedIcon, GitHubLogoIcon, InstagramLogoIcon, ResetIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import {
   AlertDialog,
@@ -71,7 +71,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 backgroundImg">
+    <main className="flex min-h-screen flex-col items-center justify-center md:p-24 p-0  backgroundImg">
 
       <Button variant='link' className="absolute h-8 top-4 right-4 flex flex-row gap-2" onClick={handleReset}>
         <span>Reset</span>
@@ -83,7 +83,7 @@ export default function Home() {
       {!isSecondDialogOpen && (
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <button className="button-11" role="button" onClick={handleOpen}>
+            <button className=" md:w-96 w-10/12 md:h-24 h-auto button-11" role="button" onClick={handleOpen}>
               <div className="button-11__content">
                 <div className="button-11__icon">
                   <Image src='/peace.png' alt="" width={40} height={40} />
@@ -138,18 +138,18 @@ export default function Home() {
         </AlertDialog>
       )}
 
-      <div className="absolute bottom-4 flex flex-row gap-2">
-        <Badge variant="default" className="flex flex-row gap-2 rounded-sm py-1">
+      <div className="absolute bottom-4 flex md:flex-row flex-col gap-2">
+        <Badge onClick={() => router.push('https://github.com/the-bipu/make-everything-ok')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
           <GitHubLogoIcon className="w-4 h-4" />
           <span>Github</span>
         </Badge>
-        <Badge variant="default" className="flex flex-row gap-2 rounded-sm py-1">
+        <Badge onClick={() => router.push('mailto:thebippu@gmail.com')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
+          <EnvelopeClosedIcon className="w-4 h-4" />
+          <span>Email</span>
+        </Badge>
+        <Badge onClick={() => router.push('https://www.instagram.com/___thenormi_xd/')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
           <InstagramLogoIcon className="w-4 h-4" />
           <span>Instagram</span>
-        </Badge>
-        <Badge variant="default" className="flex flex-row gap-2 rounded-sm py-1">
-          <TwitterLogoIcon className="w-4 h-4" />
-          <span>X</span>
         </Badge>
       </div>
 

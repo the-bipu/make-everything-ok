@@ -85,8 +85,6 @@
   touch-action: manipulation;
   position: relative;
   padding: 0;
-  width: 400px;
-  height: 100px;
   border: 2px solid #888888;
   outline: none;
   background-color: #f4f5f6;
