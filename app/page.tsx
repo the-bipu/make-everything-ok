@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { EnvelopeClosedIcon, GitHubLogoIcon, InstagramLogoIcon, ResetIcon } from "@radix-ui/react-icons";
+import { DashboardIcon, EnvelopeClosedIcon, GitHubLogoIcon, InstagramLogoIcon, ResetIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import {
   AlertDialog,
@@ -73,6 +73,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center md:p-24 p-0  backgroundImg">
 
+      <Button variant='link' className="absolute h-8 top-4 left-4 flex flex-row gap-2" onClick={() => router.push('https://github.com/the-bipu/make-everything-ok')}>
+        <div className="w-auto h-auto flex items-center justify-center rounded-full bg-black p-1">
+          <DashboardIcon className="w-4 h-4 text-white" />
+        </div>
+        <span>Make Everything Okay</span>
+      </Button>
+
       <Button variant='link' className="absolute h-8 top-4 right-4 flex flex-row gap-2" onClick={handleReset}>
         <span>Reset</span>
         <div className="w-auto h-auto flex items-center justify-center rounded-full bg-black p-1">
@@ -138,18 +145,18 @@ export default function Home() {
         </AlertDialog>
       )}
 
-      <div className="absolute bottom-4 flex md:flex-row flex-col gap-2">
+      <div className="absolute bottom-4 flex flex-row gap-2">
         <Badge onClick={() => router.push('https://github.com/the-bipu/make-everything-ok')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
           <GitHubLogoIcon className="w-4 h-4" />
-          <span>Github</span>
+          <span className="md:flex hidden">Github</span>
         </Badge>
         <Badge onClick={() => router.push('mailto:thebippu@gmail.com')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
           <EnvelopeClosedIcon className="w-4 h-4" />
-          <span>Email</span>
+          <span className="md:flex hidden">Email</span>
         </Badge>
         <Badge onClick={() => router.push('https://www.instagram.com/___thenormi_xd/')} variant="default" className="flex flex-row gap-2 rounded-sm py-1 cursor-pointer">
           <InstagramLogoIcon className="w-4 h-4" />
-          <span>Instagram</span>
+          <span className="md:flex hidden">Instagram</span>
         </Badge>
       </div>
 
